@@ -1,8 +1,47 @@
 let dateFrom;
 let dateTo;
+let diferenciaEnMilisegundos;
 
-dateFrom = Date.parse("2025-03-28T16:00:00.000-03:00")
+
+dateFrom = Date.parse("2025-03-28T16:00:00.000-03:00");
 dateTo = Date.now();
 
-console.log(dateFrom)
-console.log("Faltan " + (dateFrom - dateTo)) + " milisegundos"
+
+function calularDiferenciaEnMilisegundos(){
+    return (dateFrom - dateTo);
+}
+
+function calcularTiempoRestante(diferenciaEnMilisegundos) {
+    let dias, horas, minutos, segundos;
+    dias = Math.floor(diferenciaEnMilisegundos / 86400000);
+    horas = Math.floor((diferenciaEnMilisegundos % 86400000) / 3600000);
+    minutos = Math.floor(((diferenciaEnMilisegundos % 86400000) % 3600000) / 60000);
+    segundos = Math.floor((((diferenciaEnMilisegundos % 86400000) % 3600000) % 60000) / 1000);
+
+    return "Faltan " + dias + " días, " + minutos + " minutos, " + segundos + " segundos";
+}
+
+function actualizarTiempo(){
+    console.log(diferenciaEnMilisegundos);
+
+    diferenciaEnMilisegundos = calularDiferenciaEnMilisegundos();
+    let textoContador = document.getElementById("texto-contador");
+    textoContador.innerHTML = calcularTiempoRestante(diferenciaEnMilisegundos);
+}
+
+setInterval(actualizarTiempo, 1000);
+
+
+
+
+
+
+
+
+
+//segundos = 1000ms
+//minutos = 60.000ms
+//horas = 3.600.000
+//horas = 86.400.000
+//
+
