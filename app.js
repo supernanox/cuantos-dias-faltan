@@ -2,12 +2,10 @@ let dateFrom;
 let dateTo;
 let diferenciaEnMilisegundos;
 
-
 dateFrom = Date.parse("2025-03-28T16:00:00.000-03:00");
-dateTo = Date.now();
-
 
 function calularDiferenciaEnMilisegundos(){
+    dateTo = Date.now();
     return (dateFrom - dateTo);
 }
 
@@ -18,12 +16,10 @@ function calcularTiempoRestante(diferenciaEnMilisegundos) {
     minutos = Math.floor(((diferenciaEnMilisegundos % 86400000) % 3600000) / 60000);
     segundos = Math.floor((((diferenciaEnMilisegundos % 86400000) % 3600000) % 60000) / 1000);
 
-    return "Faltan " + dias + " días, " + minutos + " minutos, " + segundos + " segundos";
+    return `Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
 }
 
 function actualizarTiempo(){
-    console.log(diferenciaEnMilisegundos);
-
     diferenciaEnMilisegundos = calularDiferenciaEnMilisegundos();
     let textoContador = document.getElementById("texto-contador");
     textoContador.innerHTML = calcularTiempoRestante(diferenciaEnMilisegundos);

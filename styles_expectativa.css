@@ -1,0 +1,13 @@
+.card {
+    background-image: url("img/expectativa.jpg"); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* O la altura que desees */
+}
+
+.card-img-overlay {
+    /* Ajusta los estilos del overlay para que el texto sea legible */
+    background-color: rgba(0, 0, 0, 0.5); /* Ejemplo: fondo semi-transparente */
+    color: white;
+}
