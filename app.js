@@ -31,10 +31,6 @@ setInterval(actualizarTiempo, 1000);
 
 
 
-
-
-
-
 //segundos = 1000ms
 //minutos = 60.000ms
 //horas = 3.600.000
